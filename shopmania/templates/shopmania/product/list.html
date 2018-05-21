@@ -1,0 +1,40 @@
+{% extends 'shopmania/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for product in products %}
+
+<a href="{{ product.get_absolute_url }}">
+<img src="{% if product.image_2 %} {{ product.image_2.url }} {% endif %}" alt="Product Image" style="height: 130px; width: auto">
+</a>
+
+<h3>
+<a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+</h3>
+<p>{{ product.price }}</p>
+
+{% endfor %}
+
+<h4>Categories</h4>
+{% if not category %}
+<ol>
+  {% for c1 in categories %}
+  <li>
+    <a href="{{ c1.get_absolute_url }}">
+      {{c1.name }}
+    </a>
+  </li>
+  {% endfor %}
+</ol>
+{% endif %}
+
+{% if category %}
+{% for c in categories %}
+<li {% if category.slug == c.slug %}{% endif %}>
+<a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+</li>
+{% endfor %}
+</ol>
+{% endif %}
+{% endblock %}

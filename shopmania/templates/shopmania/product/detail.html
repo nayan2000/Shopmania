@@ -1,0 +1,17 @@
+{% extends 'shopmania/base.html' %}
+{% load static %}
+{% block title %}
+{{ product.name }}
+{% endblock %}
+
+{% block content %}
+
+<img src="{% if product.image_2 %} {{ product.image_2.url }} {% endif %}" alt="Product Image" style="height: 130px; width: auto">
+<h3> Product Category :</h3> <p style="color: Blue"> {{ product.category }}   </p>
+<h3> Product Name :</h3> <p style="color: Blue"> {{ product.name }}    </p>
+<h3> Product Description :</h3> <p style="color: Blue">  {{ product.description }}    </p>
+<h3> Product Price :</h3> <p style="color: Blue">  Rs. {{ product.price }}    </p>
+<h3> Product Availability :</h3> <p style="color: Blue">  {{ product.available}}   </p>
+<h3> Product Stock :</h3> <p style="color: Blue">  {{ product.stock }}    </p>
+
+{% endblock %}
