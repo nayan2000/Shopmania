@@ -26,8 +26,8 @@ class Product(models.Model):
     stock = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
-    image_1 = Models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
-    image_2 = Models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+    image_1 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+    image_2 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
 
     def __str__(self):
         return self.name
