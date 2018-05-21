@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shopmania.apps.ShopmaniaConfig',
+    'cart.apps.CartConfig',
 ]
 
 MIDDLEWARE = [
@@ -121,4 +122,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR+r'/shopmania/static/shopmania/','products/')
+MEDIA_ROOT = os.path.join(BASE_DIR+r'/shopmania/static/shopmania','products/')
+
+CART_SESSION_ID = 'cart'
