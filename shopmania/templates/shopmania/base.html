@@ -1,21 +1,181 @@
-<!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" >
+
 <head>
-    <meta charset="UTF-8">
-    <title>
-      {% block title %}
-      Shop-A-Mania
-      {% endblock %}
-    </title>
+  <meta charset="UTF-8">
+  <title>{% block title %} Shop-A-Mania {% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base-responsive.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
+
+
 <body>
+
+<header>
+<nav id="nav">
+			<div class="logo nav-common"><img src="{% static 'images/logo.png' %}" alt="brand-logo"></div>
+			<ul class="nav-common">
+				<li><a href="#">Home</a></li>
+				<li ><a href="#products ">Products</a></li>
+				<li><a href="#for_you">Collections</a></li>
+				<li><a href="#blog">Blog</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+			<div class="cart nav-icon nav-common"><a href="{% url "cart:cart_detail" %}"><img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412544/E-commerce%20landing%20page/icons/shopping_cart_1x.png" alt="shopping-cart"></a></div>
+			<div class="menu nav-icon nav-common" onclick="openNav()" style="cursor: pointer;"><img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412543/E-commerce%20landing%20page/icons/menu_1x.png" alt="hamburger-menu"></div>
+		</nav>
+
+
+<div id="myNav" class="overlay">
+<a href="javascript:void(0)" class="clasebtn" onclick="closeNav()">&times;</a> <!--here &times; means mul sign closenav() is the func which reduces height to 0-->
+<div class="overlay-content"> <!--content class-->
+    <a href="#">About</a>
+    <a href="#for_you">Services</a>
+    <a href="#products">products</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+
+		<div id="header-hero">
+			<div class="header-bg"> <img src="{% static 'images/11.jpg' %}" alt="header-image" /> </div>
+			<div class="header-content">
+				<p class="heading-1">MOST EXCITING SALE OF THE YEAR </p>
+				<h1 >IS HERE ONLY AT </h1>
+				<h1 class=" logo-style">
+					SHOPPING MANIA
+				</h1>
+				<div class="button">
+					<a  href="#products">SHOP NOW!</a>
+				</div>
+			</div>
+		</div>
+
+
+</header>
+	<section id="for_you">
+		<div class="container">
+			<div class="sc-content">
+				<h1>LETS BEAT SUMMERS </h1>
+				<p class="description">This year summers can not beat us and we will take over it  because we shop from shopmania </p>
+				<a href="#">SHOP NOW</a> </div>
+			<div class="sc-media">
+				<div class="sc-media-bg"> <img src="{% static 'images/sto.jfif' %}" style="height: 500px;"alt="sc-image" /> </div>
+			</div>
+		</div>
+	</section>
+
 
 
 {% block content %}
-
 {% endblock %}
 
 
+
+
+<section id="products">
+		<div class="container">
+			<div class="products-header">
+				<h2>Popular Products</h2>
+				<p>Our High Rated Products </p>
+			</div>
+      {% for product in products %}
+			<div class="product product-1">
+				<figure>
+          <a href="{{ product.get_absolute_url }}">
+          <img src="{% if product.image_2 %} {{ product.image_2.url }} {% endif %}" alt="Product Image">
+          </a>
+					<figcaption><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></figcaption>
+					<figcaption>{{ product.price }}</figcaption>
+				</figure>
+			</div>
+      {% endfor %}
+			<!-- <div class="product product-2">
+				<figure> <img src="images/ornaments.jpg">
+					<figcaption><a href="">{{ product.name}}</a></figcaption>
+					<figcaption>12,000</figcaption>
+				</figure>
+			</div>
+			<div class="product product-3">
+				<figure> <img src="images/note3.jpg" alt="product-image">
+					<figcaption>
+<a href="/4/redmi-note-3/">redmi note 3</a></figcaption>
+					<figcaption>10,000</figcapltion>
+				</figure>
+			</div>
+			<div class="product product-4">
+				<figure> <img src="images/note4.jfif" alt="product-image">
+					<figcaption><a href="discription.html">redmi note 4</a></figcaption>
+					<figcaption>8,000</figcaption>
+				</figure>
+			</div> -->
+		</div>
+	</section>
+
+
+
+<section id="blog">
+		<div class="container">
+			<div class="blog-header">
+				<h2>Latest from blog</h2>
+				<p>Please Email us your product reviews at helpcare@shopmania.org </p>
+			</div>
+			<div class="blog-content">
+				<div class="blog-1">
+					<div class="blog-1-image-holder"> <img src="{% static 'images/img_1.jpg' %}" alt="image"> </div>
+					<div class="blog-1-content">
+						<h4>Keshav</h4>
+						<h3>Great service</h3>
+						<p class="description">I couldn't believe that a shopping company can have such an awesome website and I am just loving it. Thanks SHOPMANIA:)</p>
+						<p class="button">View Post</p>
+					</div>
+				</div>
+				<div class="blog-2">
+					<div class="blog-2-image-holder"> <img src="{% static 'images/nayan.png' %}" alt="image"> </div>
+					<div class="blog-2-content">
+						<h4>Nayan Khanna </h4>
+						<h3>Amazing website </h3>
+						<p class="description">Such an Awesome interface and a wide range of products available. One must refer to this website for clothing and other types of products. </p>
+						<p class="button">View Post</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+  <footer>
+  	<div id="contact">
+  		<div class="left">
+  			<h3>Get to Know Us</h3>
+  			<ul>
+  				<li>About Us</li>
+  				<li>Head Office Contacg</li>
+  				<li>Customer Service</li>
+  			  </ul>
+  		</div>
+  		<div class="right">
+<h3>Connect with Us</h3>
+<a href="https://www.facebook.com/nayan.khanna.12" class="fa fa-facebook"></a>
+<a href="https://www.twitter.com/khanna_nayan" class="fa fa-twitter"></a>
+<a href="https://www.google.com" class="fa fa-google"></a>
+</div>
+  		</div>
+  	</div></footer>
+<div class="back-to-top"><a href="#nav"> <img title="Back to Top." src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412541/E-commerce%20landing%20page/icons/back_-_top_1x.png" alt="back to top"></a> </div>
+
+
 </body>
+
+<script>
+function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+</script>
 </html>

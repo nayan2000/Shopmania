@@ -1,16 +1,4 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en" >
-
-<head>
-  <meta charset="UTF-8">
-  <title>{{ product.name }}</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-    <link rel="stylesheet" href="{% static 'css/product/detail.css' %}">
-      <style>
-      * {
+* {
   line-height: 1.5;
 
 }
@@ -219,6 +207,16 @@ td.text-right {
 
 
 
+
+
+
+
+
+
+
+
+
+
 .fadein img {
     opacity:0;
     animation-name: fade;
@@ -248,72 +246,3 @@ td.text-right {
   44.44%  { opacity: 0; }
   100% { opacity: 0; }
 } 
-</style>
-
-</head>
-
-<body>
-
-  <body>
-
-  <section>
-    <div class='container'>
-      <div class='col-6'>
-        <div class="fadein">
-
-          <img  src="{{ product.image_1.url }}">
-          <img  src="{{ product.image_2.url }}">
-          <!-- <img style="height:194px width:259px" src="{{ product.image_3.url }}"> -->
-            <!-- <img src="note4_2.jfif"><img src="note4_3.jfif"> -->
-        </div>
-      </div>
-      <div class='col-6 description'>
-       <div class="table-title">
-<h3>{{ product.name }}</h3>
-</div>
-<table class="table-fill">
-<thead>
-<tr>
-<th class="text-left">categories</th>
-<th class="text-left">features</th>
-</tr>
-</thead>
-<tbody class="table-hover">
-<tr>
-<td class="text-left">Product Category</td>
-<td class="text-left">{{ product.category }}</td>
-</tr>
-<tr>
-<td class="text-left">Product Name </td>
-<td class="text-left">{{ product.name }}</td>
-</tr>
-<tr>
-<td class="text-left">Description</td>
-<td class="text-left">{{ product.description }}</td>
-</tr>
-<tr>
-<td class="text-left">Product Price</td>
-<td class="text-left">Rs. {{ product.price }}</td>
-</tr>
-<tr>
-<td class="text-left">Product Availability</td>
-<td class="text-left">{{ product.available }}</td>
-</tr>
-<tr>
-<td class="text-left">Product Stock</td>
-<td class="text-left">{{ product.stock }}</td>
-</tr>
-</tbody>
-</table>
-<br>
-<button class='btn-primary'>
-  <pre>
-<form action="{% url "cart:cart_add" product.id %}" method="post">{% csrf_token %} {{ cart_product_form }}       <input type="submit" value="add to cart" ></form></button></pre>
-      <!-- <button class='btn-primary'><a href="#">add to cart</a></button> -->
-      </div>
-    </div>
-  </section>
-</body>
-
-
-</html>
