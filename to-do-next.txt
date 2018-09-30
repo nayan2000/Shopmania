@@ -1,0 +1,2 @@
+Integrate payments and store transaction details
+Portal for adding products(except from admin panel)
