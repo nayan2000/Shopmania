@@ -5,6 +5,8 @@
 <head>
   <meta charset="UTF-8">
   <title>{% block title %} Your Shopping Cart {% endblock %}</title>
+  <link rel="shortcut icon" type="image/png" href="https://www.logolynx.com/images/logolynx/60/605c92a444a8532779c9ac82776b4df2.png"
+  />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
       <link rel="stylesheet" type="text/css" href="{% static 'css/cart/cart.css' %}" >
@@ -158,18 +160,17 @@ label {
 .checkout {
   float: right;
   display: inline-block;
-  background-color: #f4511e;
   border: none;
-  width: 200px;
-  padding: 20px;
-  background-color: #6b6;
+  width: 130px;
+  padding: 15px;
+  background-color: rgba(34, 57, 77, 0.876);
   color: #FFFFFF;
   transition: all 0.5s;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 3px;
-  margin: 3px;
-  margin-top: 14px;
+  margin: 2px;
+  margin-top: 15px;
 }
 
 
@@ -185,12 +186,12 @@ label {
   position: absolute;
   opacity: 0;
   top: 0;
-  right: -20px;
+  right: -12px;
   transition: 0.5s;
 }
 
 .checkout:hover span {
-  padding-right: 25px;
+  padding-right: 15px;
 }
 
 .checkout:hover span:after {
@@ -349,7 +350,7 @@ label {
   </div>
 
       <a href="{% url "shopmania:product_list" %}" >
-        <button class="checkout" ><span>Continue Shopping</span></button></a>
+        <button class="checkout" ><span>Shop more</span></button></a>
      <a href="" > <button class="checkout"><span>Checkout</span></button></a>
 </div>
 
